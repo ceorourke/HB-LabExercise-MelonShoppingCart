@@ -97,12 +97,13 @@ def add_to_cart(melon_id):
             #increment count
             session["cart"][melon_id] += 1
         else:
-            session["cart"] = melon_id
+            session["cart"][melon_id] = 1
     else:
-        session["cart"] = {melon_id:1}
+        session["cart"] = {melon_id: 1}
         # flash a message
     flash("melon was successfully")
         # redirect to cart page
+    print session["cart"]
     return render_template("cart.html")
 
 
